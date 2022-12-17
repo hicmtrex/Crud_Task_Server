@@ -1,0 +1,591 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "CRUD Tasks Opeartions",
+        "description": ""
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8080",
+            "description": "Local Dev, or from Heroku"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Tasks",
+            "description": "API for tasks in the system"
+        },
+        {
+            "name": "User",
+            "description": "API for tasks in the system"
+        },
+        {
+            "name": "Auth",
+            "description": "API for tasks in the system"
+        }
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/tasks/all-tasks": {
+            "get": {
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "page",
+                        "default":1,
+                        "required": true,
+                        "description": "Task with id",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "required": true,
+                        "default":10,
+                        "description": "Task with id",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    },
+                    {
+                        "in": "query",
+                        "name": "status",
+                        "description": "Task with id",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    },
+                    {
+                        "in": "query",
+                        "name": "toDate",
+                        "description": "Task with id",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    },
+                    {
+                        "in": "query",
+                        "name": "fromDate",
+                        "description": "Task with id",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    },
+                    {
+                        "in": "query",
+                        "name": "userId",
+                        "description": "Task with id",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    },
+                    {
+                        "in": "query",
+                        "name": "keyword",
+                        "description": "Task with id",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    }
+                ],
+                "tags": [
+                    "Tasks"
+                ],
+                "summary": "Get all Tasks in system",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Tasks"
+                        }
+                    }
+                }
+            
+           }
+        },
+        "/tasks/add-task" :{
+            "post": {
+                "tags": [
+                    "Tasks"
+                ],
+                "summary": "Create a new Task in system",
+                "requestBody": {
+                    "description": "Task Object",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/definitions/Task"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    },
+                    "400": {
+                        "description": "Failed. Bad post data."
+                    }
+                }
+            }
+        },
+        "/tasks/user-tasks/{id}": {
+            "get": {
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "page",
+                        "default":1,
+                        "required": true,
+                        "description": "Task with id",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "required": true,
+                        "default":10,
+                        "description": "Task with id",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    },
+                    {
+                        "in": "query",
+                        "name": "status",
+                        "description": "Task with id",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Task with id",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    }
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get all User Tasks in system",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Task"
+                        }
+                    }
+                }
+            
+           }
+        },
+        "/tasks/task/{id}": {
+            "get": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Task with id",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    }
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get Task Details in system",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Task"
+                        }
+                    }
+                }
+            
+           }
+        },
+        "/tasks/edit-task/{id}": {
+            "put": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Task with id",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    }
+                ],
+                "tags": [
+                    "Tasks"
+                ],
+                "summary": "Edit Task in system",
+                "requestBody": {
+                    "description": "Task Object",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/definitions/Task"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Task"
+                        }
+                    }
+                }
+            
+           }
+        },
+        "/tasks/complete": {
+            "put": {
+                "tags": [
+                    "Tasks"
+                ],
+                "summary": "Change Task Status in system",
+                "requestBody": {
+                    "description": "Task Object",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/id"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Task"
+                        }
+                    }
+                }
+            
+           }
+        },
+        "/tasks/delete-task/{id}": {
+            "delete": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Task with id"
+                      
+                    }
+                ],
+                "tags": [
+                    "Tasks"
+                ],
+                "summary": "Delete Task in system",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    }
+                }
+            
+           }
+        },
+
+        "/auth/login" :{
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Login to the system",
+                "requestBody": {
+                    "description": "Login Object",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Login"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    },
+                    "400": {
+                        "description": "Failed. Bad post data."
+                    }
+                }
+            }
+        },
+        "/auth/createAccount" :{
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Create Account in the system",
+                "requestBody": {
+                    "description": "Register Object",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Register"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    },
+                    "400": {
+                        "description": "Failed. Bad post data."
+                    }
+                }
+            }
+        },
+        "/auth/users": {
+            "get": {
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "page"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit"
+                    },
+                    {
+                        "in": "query",
+                        "name": "name"
+                    }
+                    
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get all Users in system",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Users"
+                        }
+                    }
+                }
+            
+           }
+        },
+        "/auth/user-status": {
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Change User Status in system",
+                "requestBody": {
+                    "description": "User Object",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/ChangeUserStatus"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Users"
+                        }
+                    }
+                }
+            
+           }
+        },
+        "/auth/user/{id}": {
+            "delete": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id"
+                    }
+                    
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "Delete User in system",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Users"
+                        }
+                    }
+                }
+            
+           }
+        }
+    },
+
+    "components":{
+        "securitySchemes":{
+            "bearerAuth":{
+                "type":"http",
+                "scheme":"bearer",
+                "bearerFormat":"JWT"
+            }
+        }
+    },
+    "security":{
+        "bearerAuth": [] 
+    },
+    "definitions": {
+        "id": {
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            }
+        },
+        "Task": {
+            "type": "object",
+            "properties": {
+                "title":{
+                    "type":"string"
+                    
+                },
+                "userId" : {
+                    "type":"string"
+                },
+                "image":{
+                     "type":"file"
+                    
+                },
+                "description":{
+                     "type":"string"
+                    
+                },
+                "deadline":{
+                     "type":"date"
+                    
+                }
+            }
+        },
+        "Login":{
+            "type": "object",
+            "properties": {
+                "email":{
+                    "type":"string"
+                },
+                "password":{
+                    "type":"string"
+                },
+                "role":{
+                    "type":"string"
+                }
+            }
+        },
+        "ChangeUserStatus":{
+            "type": "object",
+            "properties": {
+                "id":{
+                    "type":"string"
+                },
+                "status":{
+                    "type":"string"
+                }
+            }
+        },
+        "Register":{
+            "type": "object",
+            "properties": {
+                "email":{
+                    "type":"string"
+                },
+                "password":{
+                    "type":"string"
+                },
+                "username":{
+                    "type":"string"
+                },
+                "role":{
+                    "type":"string"
+                }
+            }
+        },
+        "Users":{
+            "type": "object",
+            "properties": {
+                "assignedTasks":{
+                    "type":"integer"
+                },
+                "email":{
+                    "type":"string"
+                },
+                "status":{
+                    "type":"string"
+                },
+                "username":{
+                    "type":"string"
+                },
+                "role":{
+                    "type":"string"
+                }
+            }
+        },
+        "Tasks": {
+            "type": "object",
+            "properties": {
+                "tasks": {
+                    "type": "array",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/Task"
+                    }
+                }
+            }
+        }
+    }
+}
