@@ -2,7 +2,7 @@ repo_name: hicmtrex/Crud_Task_Server
 report_id: 723f961875066531b021d2d63d027184
 version: 0.1
 repo_type: Public
-timestamp: '2023-12-21T15:36:48+00:00'
+timestamp: '2024-01-05T08:17:27+00:00'
 requested_by: invalid-email-address
 provider: github
 branch: main
@@ -17,6 +17,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/1209/javascript.jpeg
+  detection_source_url: https://github.com/hicmtrex/Crud_Task_Server
   detection_source: Repo Metadata
 - name: ExpressJS
   description: Sinatra inspired web development framework for node.js -- insanely
@@ -69,6 +70,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Server Configuration and Automation
   image_url: https://img.stackshare.io/service/8067/default_90dcb1286af7685c68df319c764b80704df1155b.png
+  detection_source_url: https://github.com/hicmtrex/Crud_Task_Server/blob/main/package.json
   detection_source: package.json
   last_updated_by: Firstname Lastname
   last_updated_on: 2022-12-17 16:45:42.000000000 Z
@@ -80,6 +82,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Version Control System
   image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/hicmtrex/Crud_Task_Server
   detection_source: Repo Metadata
 - name: nodemon
   description: A simple monitor script for use during development of a node.js app
@@ -103,6 +106,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Front End Package Manager
   image_url: https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png
+  detection_source_url: https://github.com/hicmtrex/Crud_Task_Server/blob/main/package.json
   detection_source: package.json
   last_updated_by: Firstname Lastname
   last_updated_on: 2022-12-17 16:45:42.000000000 Z
@@ -114,6 +118,7 @@ tools:
   category: Communications
   sub_category: Transactional Email
   image_url: https://img.stackshare.io/service/2862/qr2-jCLr.jpg
+  detection_source_url: https://github.com/hicmtrex/Crud_Task_Server/blob/main/package.json
   detection_source: package.json
   last_updated_by: Firstname Lastname
   last_updated_on: 2022-12-17 16:45:42.000000000 Z
